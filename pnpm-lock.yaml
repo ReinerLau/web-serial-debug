@@ -28,6 +28,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.12.5
     version: 20.12.7
+  '@types/w3c-web-serial':
+    specifier: ^1.0.6
+    version: 1.0.6
   '@vitejs/plugin-vue':
     specifier: ^5.0.4
     version: 5.0.4(vite@5.2.8)(vue@3.4.21)
@@ -889,6 +892,10 @@ packages:
 
   /@types/tough-cookie@4.0.5:
     resolution: {integrity: sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==}
+    dev: true
+
+  /@types/w3c-web-serial@1.0.6:
+    resolution: {integrity: sha512-5IlDdQ2C56sCVwc7CUlqT9Axxw+0V/FbWRbErklYIzZ5mKL9s4l7epXHygn+4X7L2nmAPnVvRl55XUVo0760Rg==}
     dev: true
 
   /@typescript-eslint/eslint-plugin@7.6.0(@typescript-eslint/parser@7.6.0)(eslint@8.57.0)(typescript@5.4.5):

@@ -1,6 +1,33 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+const serialOptions: SerialOptions = {
+  baudRate: 115200,
+  dataBits: 8,
+  stopBits: 1,
+  parity: 'none',
+  bufferSize: 1024,
+  flowControl: 'none'
+}
+
+function handleTest() {
+  navigator.serial.requestPort().then((port) => {
+    port.open(serialOptions).then(async () => {
+      while (port.readable) {
+        const reader = port.readable.getReader()
+        // eslint-disable-next-line no-constant-condition
+        while (true) {
+          const { value, done } = await reader.read()
+          if (done) {
+            break
+          }
+          console.log(value)
+        }
+      }
+    })
+  })
+}
 </script>
 
 <template>
@@ -13,6 +40,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <button @click="handleTest">test</button>
       </nav>
     </div>
   </header>
