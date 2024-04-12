@@ -33,6 +33,10 @@ function handleTest() {
     })
   })
 }
+
+const data = new Uint8Array([49, 50, 51, 49, 50, 51, 13, 10])
+const text = new TextDecoder().decode(data)
+console.log(text)
 </script>
 
 <template>
