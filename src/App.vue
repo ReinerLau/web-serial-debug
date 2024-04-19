@@ -24,6 +24,8 @@ function handleTest() {
               break
             }
             console.log(value)
+            const text = new TextDecoder().decode(value)
+            console.log(text)
           }
         } finally {
           reader.releaseLock()
