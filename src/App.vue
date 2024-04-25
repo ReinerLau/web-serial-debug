@@ -24,8 +24,13 @@ function handleTest() {
               break
             }
             console.log(value)
-            const text = new TextDecoder().decode(value)
-            console.log(text)
+            console.log('方向摇杆x：', (value[2] << 8) | value[3])
+            console.log('方向摇杆y：', (value[4] << 8) | value[5])
+            console.log('云台摇杆x：', (value[6] << 8) | value[7])
+            console.log('云台摇杆y：', (value[8] << 8) | value[9])
+            console.log('油门摇杆y：', (value[12] << 8) | value[13])
+            console.log('低位按键：', value[16])
+            console.log('高位按键：', value[17])
           }
         } finally {
           reader.releaseLock()
@@ -35,10 +40,6 @@ function handleTest() {
     })
   })
 }
-
-const data = new Uint8Array([49, 50, 51, 49, 50, 51, 13, 10])
-const text = new TextDecoder().decode(data)
-console.log(text)
 </script>
 
 <template>
